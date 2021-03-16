@@ -1,0 +1,19 @@
+{
+  "name": "runtime-logo",
+  "version": "1.0.0",
+  "description": "A logo for Slack's Desktop Runtime team",
+  "main": "runtime-logo.min.js",
+  "scripts": {
+    "prettier": "npx prettier runtime-logo.js --write",
+    "build": "esbuild runtime-logo.js --bundle --minify --outfile=runtime-logo.min.js",
+    "dev": "esbuild runtime-logo.js --bundle --watch --outfile=runtime-logo.min.js",
+    "test": "npm run build && open sample.html"
+  },
+  "author": "Felix Rieseberg <felix@felixrieseberg.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "esbuild": "^0.9.2",
+    "@georgedoescode/spline": "^1.0.1",
+    "simplex-noise": "^2.4.0"
+  }
+}
