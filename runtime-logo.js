@@ -101,7 +101,7 @@ class RuntimeLogo extends HTMLElement {
 
   createPoints() {
     const points = [];
-    const numPoints = 10;
+    const numPoints = 7;
     // used to equally space each point around the circle
     const angleStep = (Math.PI * 2) / numPoints;
     // the radius of the circle
