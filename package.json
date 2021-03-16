@@ -7,7 +7,7 @@
     "prettier": "npx prettier runtime-logo.js --write",
     "build": "esbuild runtime-logo.js --bundle --minify --outfile=runtime-logo.min.js",
     "dev": "esbuild runtime-logo.js --bundle --watch --outfile=runtime-logo.min.js",
-    "test": "npm run build && open sample.html"
+    "test": "npm run build && open index.html"
   },
   "author": "Felix Rieseberg <felix@felixrieseberg.com>",
   "license": "MIT",

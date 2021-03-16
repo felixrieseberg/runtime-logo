@@ -3,7 +3,7 @@ import SimplexNoise from "simplex-noise";
 
 let tmpl = document.createElement("template");
 tmpl.innerHTML = `
-  <svg viewBox="0 0 550 200">
+  <svg viewBox="0 0 600 220">
     <defs>
       <!-- Our gradient fill #gradient -->
       <linearGradient id="gradient" gradientTransform="rotate(90)">
@@ -14,7 +14,7 @@ tmpl.innerHTML = `
     </defs>
     <path d="" fill="url('#gradient')"></path>
     <text y="70" x="185" style="user-select: none; filter: invert(1); mix-blend-mode: difference; font-size: 2rem; font-weight: 200; font-family: var(--desktop-runtime-fonts)">Desktop</text>
-    <text y="150" x="100" style="user-select: none; filter: invert(1); mix-blend-mode: difference; font-size: 8rem; font-family: var(--desktop-runtime-fonts)">Runtime</text>
+    <text id="runtime" y="150" x="100" style="user-select: none; filter: invert(1); mix-blend-mode: difference; font-size: 8rem; font-family: var(--desktop-runtime-fonts)">Runtime</text>
   </svg>
 `;
 
@@ -49,6 +49,12 @@ class RuntimeLogo extends HTMLElement {
     this.onmouseenter = () => (this.noiseStep = 0.002);
     this.onmouseleave = () => (this.noiseStep = 0.005);
     this.onclick = () => (this.hueNoiseOffset = this.hueNoiseOffset + 20);
+    this.addEventListener("dblclick", () => {
+      shadowRoot.querySelector("#runtime").innerHTML =
+        shadowRoot.querySelector("#runtime").innerHTML === "Runtime"
+          ? "Funtime"
+          : "Runtime";
+    });
   }
 
   animate() {
