@@ -3,19 +3,21 @@ import SimplexNoise from "simplex-noise";
 
 let tmpl = document.createElement("template");
 tmpl.innerHTML = `
-  <svg viewBox="0 0 600 200" style="border: 1px solid black">
-    <defs>
-      <!-- Our gradient fill #gradient -->
-      <linearGradient id="gradient" gradientTransform="rotate(90)">
-        <!-- Use CSS custom properties for the start / stop colors of the gradient -->
-        <stop id="gradientStop1" offset="0%" stop-color="var(--desktop-runtime-startColor)" />
-        <stop id="gradientStop2 " offset="100%" stop-color="var(--desktop-runtime-stopColor)" />
-      </linearGradient>
-    </defs>
-    <path d="" fill="url('#gradient')"></path>
-    <text y="70" x="185" style="user-select: none; filter: invert(1); mix-blend-mode: difference; font-size: 2rem; font-weight: 200; font-family: var(--desktop-runtime-fonts)">Desktop</text>
-    <text id="runtime" y="150" x="100" style="user-select: none; filter: invert(1); mix-blend-mode: difference; font-size: 8rem; font-family: var(--desktop-runtime-fonts)">Runtime</text>
-  </svg>
+  <div style="position: relative">
+    <svg viewBox="0 0 600 200">
+      <defs>
+        <!-- Our gradient fill #gradient -->
+        <linearGradient id="gradient" gradientTransform="rotate(90)">
+          <!-- Use CSS custom properties for the start / stop colors of the gradient -->
+          <stop id="gradientStop1" offset="0%" stop-color="var(--desktop-runtime-startColor)" />
+          <stop id="gradientStop2 " offset="100%" stop-color="var(--desktop-runtime-stopColor)" />
+        </linearGradient>
+      </defs>
+      <path d="" fill="url('#gradient')"></path>
+      <text y="70" x="185" style="user-select: none; font-size: 2rem; font-weight: 200; font-family: var(--desktop-runtime-fonts)">Desktop</text>
+      <text id="runtime" y="150" x="100" style="user-select: none; font-size: 8rem; font-family: var(--desktop-runtime-fonts)">Runtime</text>
+      </svg>
+  </div>
 `;
 
 class RuntimeLogo extends HTMLElement {
@@ -43,6 +45,16 @@ class RuntimeLogo extends HTMLElement {
       "--desktop-runtime-fonts",
       '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif'
     );
+
+    // Handle Safari, Firefox, etc
+    // If we're in Chromium, we can do more fancy effects
+    // filter: invert(1); mix-blend-mode: difference;
+    if (!!window.chrome) {
+      shadowRoot.querySelectorAll("text").forEach((element) => {
+        element.style.setProperty("filter", "invert(1)");
+        element.style.setProperty("mix-blend-mode", "difference");
+      });
+    }
 
     this.animate();
 
