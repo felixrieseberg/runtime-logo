@@ -21,10 +21,10 @@ tmpl.innerHTML = `
 `;
 
 export class RuntimeLogo extends HTMLElement {
-  path;
-  root;
-  simplex;
-  points;
+  path = undefined;
+  root = undefined;
+  simplex = undefined;
+  points = undefined;
 
   hueNoiseOffset = 0;
   noiseStep = 0.005;
