@@ -3,7 +3,7 @@ import SimplexNoise from "simplex-noise";
 
 let tmpl = document.createElement("template");
 tmpl.innerHTML = `
-  <svg viewBox="0 0 600 220">
+  <svg viewBox="0 0 600 200" style="border: 1px solid black">
     <defs>
       <!-- Our gradient fill #gradient -->
       <linearGradient id="gradient" gradientTransform="rotate(90)">
