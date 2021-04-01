@@ -14,8 +14,8 @@ tmpl.innerHTML = `
         </linearGradient>
       </defs>
       <path d="" fill="url('#gradient')"></path>
-      <text y="70" x="185" style="user-select: none; font-size: 2rem; font-weight: 200; font-family: var(--desktop-runtime-fonts)">Desktop</text>
-      <text id="runtime" y="150" x="100" style="user-select: none; font-size: 8rem; font-family: var(--desktop-runtime-fonts)">Runtime</text>
+      <text y="70" x="185" style="user-select: none; font-size: 2em; font-weight: 200; font-family: var(--desktop-runtime-fonts)">Desktop</text>
+      <text id="runtime" y="150" x="100" style="user-select: none; font-size: 8em; font-family: var(--desktop-runtime-fonts)">Runtime</text>
       </svg>
   </div>
 `;
