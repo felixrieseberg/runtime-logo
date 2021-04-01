@@ -106,7 +106,9 @@ export class RuntimeLogo extends HTMLElement {
     );
     this.hueNoiseOffset += this.noiseStep / 6;
 
-    requestAnimationFrame(this.animate);
+    if (!window.RUNTIME_LOGO_PAUSE) {
+      requestAnimationFrame(this.animate);
+    }
   }
 
   map(n, start1, end1, start2, end2) {
